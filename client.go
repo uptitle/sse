@@ -42,7 +42,6 @@ type ResponseValidator func(c *Client, resp *http.Response) error
 type Client struct {
 	Retry             time.Time
 	ReconnectStrategy backoff.BackOff
-	LastEventID       atomic.Value // []byte
 	ReconnectNotify   backoff.Notify
 	subscribed        map[chan *Event]chan struct{}
 	Headers           map[string]string
